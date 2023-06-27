@@ -1,12 +1,10 @@
-// /api/server.js
-
 // Import dependencies
 // - brings in all of the modules we'll be using
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 
-import userDataRouter from "./userData/userData.router";
+import userDataRouter from "./userData/userData.router.js";
 
 import express from "express";
 

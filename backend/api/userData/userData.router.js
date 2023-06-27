@@ -1,10 +1,9 @@
 import express from "express";
+import { add, getAllData } from "../../controllers/userDataController.js";
 const router = express.Router();
 
 // [CREATE] new userData
-router.post("/", (req, res) => {
-  res.json({ message: "Creating new user data" });
-});
+router.post("/", add);
 // [READ] user data
 router.get("/:id", (req, res) => {
   const id = req.params.id;
@@ -21,8 +20,6 @@ router.delete("/:id", (req, res) => {
   res.json({ message: `Deleting user data with id: ${id}` });
 });
 // * [READ] ALL of the user data
-router.get("/", (req, res) => {
-  res.json({ message: "Getting all user data" });
-});
+router.get("/", getAllData);
 
 export default router;
