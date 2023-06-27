@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // [CREATE] new userData
@@ -25,4 +25,4 @@ router.get("/", (req, res) => {
   res.json({ message: "Getting all user data" });
 });
 
-module.exports = router;
+export default router;
