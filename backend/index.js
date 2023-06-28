@@ -1,5 +1,7 @@
 import server from "./api/server.js";
 import dbConnect from "./config/db.js";
+const port = process.env.PORT || 3333;
+
 dbConnect();
 
 server.listen(process.env.PORT, () =>

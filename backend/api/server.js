@@ -3,6 +3,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
+import { notFound, errorHandler } from "../middleware/errorMiddleware.js";
 
 import userDataRouter from "../routes/userData.router.js";
 
@@ -24,6 +25,10 @@ server.use("/api/userdata", userDataRouter);
 server.get("/hello", (req, res) => {
   res.json({ message: "Hello from the Server" });
 });
+
+server.use(notFound);
+
+server.use(errorHandler);
 
 // Listen to our export server
 // - what the rest of the world connects to

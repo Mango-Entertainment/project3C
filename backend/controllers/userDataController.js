@@ -1,6 +1,7 @@
 import UserData from "../models/userDataModel.js";
+import asyncHandler from "express-async-handler";
 
-const add = async (req, res) => {
+const add = asyncHandler(async (req, res) => {
   const {
     firstName,
     lastName,
@@ -38,9 +39,9 @@ const add = async (req, res) => {
     res.status(400);
     throw new Error("this didn't work");
   }
-};
+});
 
-const getAllData = async (req, res) => {
+const getAllData = asyncHandler(async (req, res) => {
   const data = await UserData.find({});
   if (data) {
     res.status(200).json(data);
@@ -48,6 +49,6 @@ const getAllData = async (req, res) => {
     res.status(400);
     throw new Error("Cannot find users :/");
   }
-};
+});
 
 export { add, getAllData };
