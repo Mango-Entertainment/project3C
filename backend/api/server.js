@@ -25,6 +25,6 @@ server.get("/hello", (req, res) => {
   res.json({ message: "Hello from the Server" });
 });
 
-// Listen to or export server
+// Listen to our export server
 // - what the rest of the world connects to
 export default server;
