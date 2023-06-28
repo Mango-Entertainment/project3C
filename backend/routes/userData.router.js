@@ -1,5 +1,5 @@
 import express from "express";
-import { add, getAllData } from "../../controllers/userDataController.js";
+import { add, getAllData } from "../controllers/userDataController.js";
 const router = express.Router();
 
 // [CREATE] new userData
