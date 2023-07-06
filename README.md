@@ -6,7 +6,9 @@ Team MANGOJS - Main Repo
 
 ## 3C Project
 
-Under tm-main/ use the folder named /project3C/
+Under folder `tm-main` use the folder `project3C`
+
+After `npm install`, `npm run dev` will run both the front and backend concurrently.
 
 #### A continuation of Project 3 - Credit Card Form
 
