@@ -1,4 +1,4 @@
-import formReducer, { initialFormState, ACTIONS } from "./FormReducer";
+import formReducer, {initialFormState, ACTIONS} from "./FormReducer";
 import {
   nameCheck,
   twoNameCheck,
@@ -10,11 +10,11 @@ import {
   mainCvcCheck,
   amexCvcCheck,
 } from "./utils/validation";
-import { createContext, useReducer, useContext } from "react";
+import {createContext, useReducer, useContext} from "react";
 
 export const FormContext = createContext();
 
-export const FormContextProvider = ({ children }) => {
+export const FormContextProvider = ({children}) => {
   const [state, dispatch] = useReducer(formReducer, initialFormState);
 
   const updateField = (e) => {
@@ -160,7 +160,7 @@ export const FormContextProvider = ({ children }) => {
       if (monthCheck.test(month)) {
         return {
           ...state,
-          expirationMonth: { data: month, isValid: true, errorMessage: "" },
+          expirationMonth: {data: month, isValid: true, errorMessage: ""},
         };
       }
     };
@@ -220,7 +220,7 @@ export const FormContextProvider = ({ children }) => {
       if (year) {
         return {
           ...state,
-          expirationYear: { data: year, isValid: true, errorMessage: "" },
+          expirationYear: {data: year, isValid: true, errorMessage: ""},
         };
       }
     };
@@ -270,34 +270,34 @@ export const FormContextProvider = ({ children }) => {
         console.log("Invalid cardtype");
         return {
           ...state,
-          cvc: { data: cvc, isValid: false, errorMessage: "Invalid Card" },
+          cvc: {data: cvc, isValid: false, errorMessage: "Invalid Card"},
         };
       }
       if (state.cardType === "amex" && amexCvcCheck.test(cvc)) {
         console.log("Cardtype amex and CVC passing amex test");
         return {
           ...state,
-          cvc: { data: cvc, isValid: true, errorMessage: "" },
+          cvc: {data: cvc, isValid: true, errorMessage: ""},
         };
       }
       if (state.cardType === "visa" && mainCvcCheck.test(cvc)) {
         console.log("Cardtype visa and CVC passing main test");
         return {
           ...state,
-          cvc: { data: cvc, isValid: true, errorMessage: "" },
+          cvc: {data: cvc, isValid: true, errorMessage: ""},
         };
       }
       if (state.cardType === "other" && mainCvcCheck.test(cvc)) {
         console.log("Cardtype other and CVC passing main test");
         return {
           ...state,
-          cvc: { data: cvc, isValid: true, errorMessage: "" },
+          cvc: {data: cvc, isValid: true, errorMessage: ""},
         };
       }
 
       return {
         ...state,
-        cvc: { data: cvc, isValid: false, errorMessage: "Invalid CVC." },
+        cvc: {data: cvc, isValid: false, errorMessage: "Invalid CVC."},
       };
     };
 
@@ -349,7 +349,7 @@ export const FormContextProvider = ({ children }) => {
       if (nameCheck.test(name)) {
         return {
           ...state,
-          cardholderName: { data: name, isValid: true, errorMessage: "" },
+          cardholderName: {data: name, isValid: true, errorMessage: ""},
         };
       }
     };

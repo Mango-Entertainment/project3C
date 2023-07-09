@@ -43,7 +43,7 @@ export const ACTIONS = {
 };
 
 const formReducer = (state, action) => {
-  const { type, payload } = action;
+  const {type, payload} = action;
   switch (type) {
     case ACTIONS.UPDATE_NAME:
       return payload;
@@ -63,6 +63,36 @@ const formReducer = (state, action) => {
         formSubmitted: true,
       };
     case ACTIONS.VALIDATE_FORM:
+      let postData = async (data) => {
+        try {
+          const res = await fetch("http://localhost:8080/api/userData", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+          if (res.status === 400) {
+            throw new Error("card number exists");
+          }
+          return res.json();
+        } catch (error) {
+          console.log("error", error.message);
+        }
+      };
+      let nameArray = state.cardholderName.data.split(" ");
+      console.log("nameArr", nameArray);
+      let userInfo = {
+        firstName: nameArray[0],
+        lastName: nameArray[1],
+        cardProvider: state.cardType,
+        cardNumber: state.cardNumber.data,
+        expirationMonth: state.expirationMonth.data,
+        expirationYear: state.expirationYear.data,
+        cvcNumber: state.cvc.data,
+      };
+      console.log("userInfo", userInfo);
+      console.log(postData(userInfo));
       return {
         ...state,
         formIsValid: true,
