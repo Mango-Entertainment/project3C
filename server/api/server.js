@@ -1,9 +1,7 @@
 // Import dependencies
 // - brings in all of the modules we'll be using
-import dotenv from "dotenv";
-dotenv.config();
 import cors from "cors";
-import { notFound, errorHandler } from "../middleware/errorMiddleware.js";
+import {notFound, errorHandler} from "../middleware/errorMiddleware.js";
 
 import userDataRouter from "../routes/userData.router.js";
 
@@ -23,7 +21,7 @@ server.use(express.json());
 server.use("/api/userdata", userDataRouter);
 
 server.get("/hello", (req, res) => {
-  res.json({ message: "Hello from the Server" });
+  res.json({message: "Hello from the Server"});
 });
 
 server.use(notFound);
