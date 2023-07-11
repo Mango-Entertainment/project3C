@@ -71,7 +71,6 @@ const formReducer = (state, action) => {
     case ACTIONS.RESET_FORM:
       return initialFormState;
     case ACTIONS.POST_DATA:
-      debugger;
       const postData = async (data) => {
         try {
           const res = await fetch("http://localhost:8080/api/userData", {
