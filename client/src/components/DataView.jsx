@@ -12,41 +12,34 @@ const DataView = () => {
     getData();
   }, []);
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Credit Card Number</th>
-            <th>Expiration Month</th>
-            <th>Expiration Year</th>
-            <th>CVC</th>
-            <th>Credit Card Provider</th>
-            <th>Date Submitted</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userData
-            ? userData.map((user) => {
-                console.log("user", user);
-                let date = new Date(user.createdAt);
-                return (
-                  <tr key={user._id}>
-                    <td>{user.firstName}</td>
-                    <td>{user.lastName}</td>
-                    <td>{user.cardNumber}</td>
-                    <td>{user.expirationMonth}</td>
-                    <td>{user.expirationYear}</td>
-                    <td>{user.cvcNumber}</td>
-                    <td>{user.cardProvider}</td>
-                    <td>{date.toLocaleDateString()}</td>
-                  </tr>
-                );
-              })
-            : null}
-        </tbody>
-      </table>
+    <div className="grid grid-cols-7 justify-items-center	">
+      <div>First Name</div>
+      <div>Last Name</div>
+      <div>Credit Card Number</div>
+      <div>Expiration</div>
+      <div>CVC</div>
+      <div>Credit Card Provider</div>
+      <div>Date Submitted</div>
+
+      {userData
+        ? userData.map((user) => {
+            console.log("user", user);
+            let date = new Date(user.createdAt);
+            return (
+              <React.Fragment key={user._id}>
+                <div>{user.firstName}</div>
+                <div>{user.lastName}</div>
+                <div>{user.cardNumber}</div>
+                <div>
+                  {user.expirationMonth}/{user.expirationYear}
+                </div>
+                <div>{user.cvcNumber}</div>
+                <div>{user.cardProvider}</div>
+                <div>{date.toLocaleDateString()}</div>
+              </React.Fragment>
+            );
+          })
+        : null}
     </div>
   );
 };

@@ -11,11 +11,11 @@ const add = asyncHandler(async (req, res) => {
     expirationYear,
     cvcNumber,
   } = req.body;
-  const check = await UserData.findOne({ cardNumber });
-  if (check) {
-    res.status(400);
-    throw new Error("card number exists :)");
-  }
+  // const check = await UserData.findOne({ cardNumber });
+  // if (check) {
+  //   res.status(400);
+  //   throw new Error("card number exists :)");
+  // }
   const data = await UserData.create({
     firstName,
     lastName,
@@ -51,4 +51,4 @@ const getAllData = asyncHandler(async (req, res) => {
   }
 });
 
-export { add, getAllData };
+export {add, getAllData};

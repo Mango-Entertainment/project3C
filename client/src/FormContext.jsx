@@ -374,6 +374,9 @@ export const FormContextProvider = ({children}) => {
       state.cvc.isValid
     ) {
       dispatch({
+        type: ACTIONS.POST_DATA,
+      });
+      dispatch({
         type: ACTIONS.VALIDATE_FORM,
         payload: null,
       });

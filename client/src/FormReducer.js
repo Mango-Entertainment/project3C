@@ -40,6 +40,7 @@ export const ACTIONS = {
   SUBMIT_FORM: "submit-form",
   VALIDATE_FORM: "validate-form",
   RESET_FORM: "reset-form",
+  POST_DATA: "post-data",
 };
 
 const formReducer = (state, action) => {
@@ -63,7 +64,15 @@ const formReducer = (state, action) => {
         formSubmitted: true,
       };
     case ACTIONS.VALIDATE_FORM:
-      let postData = async (data) => {
+      return {
+        ...state,
+        formIsValid: true,
+      };
+    case ACTIONS.RESET_FORM:
+      return initialFormState;
+    case ACTIONS.POST_DATA:
+      debugger;
+      const postData = async (data) => {
         try {
           const res = await fetch("http://localhost:8080/api/userData", {
             method: "POST",
@@ -91,14 +100,8 @@ const formReducer = (state, action) => {
         expirationYear: state.expirationYear.data,
         cvcNumber: state.cvc.data,
       };
-      console.log("userInfo", userInfo);
-      console.log(postData(userInfo));
-      return {
-        ...state,
-        formIsValid: true,
-      };
-    case ACTIONS.RESET_FORM:
-      return initialFormState;
+      postData(userInfo);
+      return {...state};
     default:
       throw new Error(`No case for type ${type} in form reducer`);
   }
