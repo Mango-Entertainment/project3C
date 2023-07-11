@@ -54,3 +54,5 @@ The proper handling of sensitive data is beyond the scope of this exercise and a
 ---
 
 ## Deployed at https://mango-grammerjam-project3.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/efae6283-ac63-4f97-aedd-c91e20970346/deploy-status)](https://app.netlify.com/sites/mango-grammerjam-project3/deploys)

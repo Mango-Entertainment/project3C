@@ -117,14 +117,17 @@ const DataView = () => {
   };
 
   return (
-    <div className="grid grid-cols-7 justify-items-center	">
+    <div className="grid grid-cols-8 justify-around justify-items-center lg:h-[600px]">
       <div className="cursor-pointer" onClick={() => setFirstSorted(true)}>
         First Name
       </div>
       <div className="cursor-pointer" onClick={() => setLastSorted(true)}>
         Last Name
       </div>
-      <div className="cursor-pointer" onClick={() => setNumberSorted(true)}>
+      <div
+        className="cursor-pointer col-span-2"
+        onClick={() => setNumberSorted(true)}
+      >
         Credit Card Number
       </div>
       <div>Expiration</div>

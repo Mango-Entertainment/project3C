@@ -7,7 +7,7 @@ const UserData = ({data}) => {
     <React.Fragment>
       <div>{data.firstName}</div>
       <div>{data.lastName}</div>
-      <div>{data.cardNumber}</div>
+      <div className="col-span-2">{data.cardNumber}</div>
       <div>
         {data.expirationMonth}/{data.expirationYear}
       </div>
