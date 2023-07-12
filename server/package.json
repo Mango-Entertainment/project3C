@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Mango Grammerjam Project 3C Server",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js",
     "build": "echo 'Building Project'"
   },
   "author": "",
