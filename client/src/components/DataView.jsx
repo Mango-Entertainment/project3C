@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import UserData from "./UserData";
 
 const DataView = () => {
@@ -11,7 +11,9 @@ const DataView = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("http://localhost:8080/api/userData");
+      const res = await fetch(
+        "https://mangogrammerjamp3c.onrender.com/api/userData"
+      );
       const data = await res.json();
       setUserData(data);
     };
@@ -141,7 +143,7 @@ const DataView = () => {
 
       {userData
         ? userData.map((user) => {
-            return <UserData key={user._id} data={{...user}} />;
+            return <UserData key={user._id} data={{ ...user }} />;
           })
         : null}
     </div>
