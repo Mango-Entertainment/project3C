@@ -44,7 +44,7 @@ export const ACTIONS = {
 };
 
 const formReducer = (state, action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
   switch (type) {
     case ACTIONS.UPDATE_NAME:
       return payload;
@@ -73,13 +73,16 @@ const formReducer = (state, action) => {
     case ACTIONS.POST_DATA:
       const postData = async (data) => {
         try {
-          const res = await fetch("http://localhost:8080/api/userData", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          });
+          const res = await fetch(
+            "https://mangogrammerjamp3c.onrender.com/api/userData",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          );
           if (res.status === 400) {
             throw new Error("card number exists");
           }
@@ -100,7 +103,7 @@ const formReducer = (state, action) => {
         cvcNumber: state.cvc.data,
       };
       postData(userInfo);
-      return {...state};
+      return { ...state };
     default:
       throw new Error(`No case for type ${type} in form reducer`);
   }
