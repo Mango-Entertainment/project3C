@@ -27,7 +27,7 @@ const TableView = ({ data, columns }) => {
   });
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center px-2">
       <div className="container">
         <div>
           <div>
@@ -73,11 +73,11 @@ const TableView = ({ data, columns }) => {
             </thead>
             <tbody>
               {table.getRowModel().rows.map((row) => (
-                <tr key={row.id} className="odd:bg-[#ddd] even:bg-[#bbb]">
+                <tr key={row.id} className="odd:bg-[#eee] even:bg-[#fff]">
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="border p-2 table-cell text-left align-top"
+                      className=" p-2 table-cell text-left align-top"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
