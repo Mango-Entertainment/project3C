@@ -1,95 +1,65 @@
-import React, {useState} from "react";
+import { useState } from "react";
 import {
-  createColumnHelper,
+  useReactTable,
   flexRender,
   getCoreRowModel,
-  useReactTable,
+  getSortedRowModel,
+  getPaginationRowModel,
+  getFilteredRowModel,
 } from "@tanstack/react-table";
 
-const columnHelper = createColumnHelper();
-const columns = [
-  columnHelper.accessor("firstName", {
-    id: "firstName",
-    header: () => "First Name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("lastName", {
-    id: "lastName",
-    header: () => "Last Name",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("cardNumber", {
-    id: "cardNumber",
-    header: () => "Card Number",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("expirationMonth", {
-    id: "expirationMonth",
-    header: () => "Month",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("expirationYear", {
-    id: "expirationYear",
-    header: () => "Year",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("cvc", {
-    id: "cvcNumber",
-    header: () => "CVC",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("provider", {
-    id: "cardProvider",
-    header: () => "Provider",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("dateSubmitted", {
-    id: "createdAt",
-    header: () => "Date Submitted",
-    cell: (info) => info.getValue(),
-  }),
-];
+const TableView = ({ data, columns }) => {
+  const [sorting, setSorting] = useState([]);
+  const [filter, setFilter] = useState("");
 
-const defaultData = [
-  {
-    _id: "649c6776f8a33137155c461e",
-    firstName: "Arent",
-    lastName: "Gertrude",
-    cardProvider: "Bonjour",
-    cardNumber: "3204812",
-    expirationMonth: "11",
-    expirationYear: "27",
-    cvcNumber: "125",
-    createdAt: "2023-06-28T17:01:42.630Z",
-    updatedAt: "2023-06-28T17:01:42.630Z",
-    __v: 0,
-  },
-];
-
-const TableView = () => {
-  const [userData, setUserData] = useState(...defaultData);
   const table = useReactTable({
-    userData,
+    data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    state: {
+      sorting: sorting,
+      globalFilter: filter,
+    },
+    onSortingChange: setSorting,
   });
 
-  //   console.log(userData);
-
   return (
-    <div>
-      <table>
+    <div className="px-1 py-4 grid justify-center content-center container w-full">
+      <div>
+        Filter:
+        <input
+          type="text"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="border ml-2"
+        />
+      </div>
+      <table className="border-collapse border-spacing-0 w-full table border border-solid border-lightGrayViolet mt-2">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className="border border-b-gradient-a">
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceHolder
-                    ? null
-                    : flexRender(
+                <th
+                  key={header.id}
+                  onClick={header.column.getToggleSortingHandler()}
+                  className="border p-2 table-cell text-left align-top"
+                >
+                  {header.isPlaceholder ? null : (
+                    <div>
+                      {flexRender(
                         header.column.columnDef.header,
                         header.getContext()
                       )}
+                      {
+                        { asc: "🔼", desc: "🔽" }[
+                          header.column.getIsSorted() ?? null
+                        ]
+                      }
+                    </div>
+                  )}
                 </th>
               ))}
             </tr>
@@ -97,9 +67,12 @@ const TableView = () => {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <tr key={row.id} className="odd:bg-[#ddd] even:bg-[#bbb]">
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <td
+                  key={cell.id}
+                  className="border p-2 table-cell text-left align-top"
+                >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
@@ -107,6 +80,36 @@ const TableView = () => {
           ))}
         </tbody>
       </table>
+      <div className="mt-2">
+        <button
+          className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border"
+          onClick={() => table.setPageIndex(0)}
+        >
+          First Page
+        </button>
+        <button
+          className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1  disabled:bg-grayText disabled:text-grayText"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous Page
+        </button>
+        <button
+          className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1  disabled:bg-grayText disabled:text-grayText"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next Page
+        </button>
+        <button
+          className={
+            "bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1"
+          }
+          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+        >
+          Last Page
+        </button>
+      </div>
     </div>
   );
 };
