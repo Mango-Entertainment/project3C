@@ -1,10 +1,8 @@
-import DataView from "./components/DataView";
 import MainPage from "./components/MainPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TableView from "./components/TableView";
-import TableTest from "./components/TableTest";
 import useFetch from "./hooks/useFetch";
 
 function App() {
