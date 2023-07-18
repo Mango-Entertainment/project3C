@@ -50,16 +50,20 @@ const TableView = ({ data, columns }) => {
                       className="border p-2 table-cell text-left align-top"
                     >
                       {header.isPlaceholder ? null : (
-                        <div>
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                          {
-                            { asc: "🔼", desc: "🔽" }[
-                              header.column.getIsSorted() ?? null
-                            ]
-                          }
+                        <div className="flex justify-between pr-2">
+                          <div>
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                          </div>
+                          <div>
+                            {
+                              { asc: "↑", desc: "↓", false: "↕" }[
+                                header.column.getIsSorted() ?? null
+                              ]
+                            }
+                          </div>
                         </div>
                       )}
                     </th>
