@@ -91,20 +91,20 @@ const TableView = ({ data, columns }) => {
           </table>
           <div className="mt-2">
             <button
-              className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border"
+              className="bg-[#ccc] hover:bg-[#eee] font-bold py-2 px-4 rounded border"
               onClick={() => table.setPageIndex(0)}
             >
               First Page
             </button>
             <button
-              className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1  disabled:bg-grayText disabled:text-grayText"
+              className="bg-[#ccc] hover:bg-[#eee] font-bold py-2 px-4 rounded border ml-1  disabled:bg-[#ddd] disabled:text-[#999]"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
               Previous Page
             </button>
             <button
-              className="bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1  disabled:bg-grayText disabled:text-grayText"
+              className="bg-[#ccc] hover:bg-[#eee] font-bold py-2 px-4 rounded border ml-1  disabled:bg-[#ddd] disabled:text-[#999]"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >
@@ -112,7 +112,7 @@ const TableView = ({ data, columns }) => {
             </button>
             <button
               className={
-                "bg-lightGrayViolet hover:bg-darkGrayViolet font-bold py-2 px-4 rounded border ml-1"
+                "bg-[#ccc] hover:bg-[#eee] font-bold py-2 px-4 rounded border ml-1"
               }
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             >
