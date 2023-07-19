@@ -19,8 +19,6 @@ You are required to save the form data to a database of your choice and create a
 - Save data to a database
 - Read data from database
 
-'NOTE: You can use any database and server technology of your choice. If you are not familiar with backend programming and databases you can always use Firebase as a more frontend'
-
 **Data view route**
 User should have the data displayed in a table format
 User should have the ability to sort by submitted date, first name, last name, CC number, and CC provider
