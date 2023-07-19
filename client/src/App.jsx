@@ -47,7 +47,7 @@ function App() {
 
   return (
     <Router>
-      <div className="w-full md:mx-auto">
+      <div className="w-[375px] lg:w-[1440px] mx-auto">
         <Navbar />{" "}
         <Routes>
           <Route
