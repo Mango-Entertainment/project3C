@@ -1,12 +1,14 @@
 import MainPage from "./components/MainPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import TableView from "./components/TableView";
 import useFetch from "./hooks/useFetch";
+import {Suspense} from "react";
+import Loading from "./components/Loading";
 
 function App() {
-  const { data, loading } = useFetch(
+  const {data, loading} = useFetch(
     "https://mangogrammerjamp3c.onrender.com/api/userData"
   );
 
@@ -51,7 +53,9 @@ function App() {
         <Navbar />{" "}
         <Routes>
           <Route
-            element={<TableView data={data} columns={columns} />}
+            element={
+              <TableView data={data} columns={columns} loading={loading} />
+            }
             path="/dataview"
           />
           <Route element={<MainPage />} path="/" />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
@@ -11,10 +11,10 @@ const useFetch = (url) => {
       setData(data);
       setLoading(false);
     };
-    getData();
+    setTimeout(() => getData(), "5000");
   }, []);
 
-  return { data, loading };
+  return {data, loading};
 };
 
 export default useFetch;

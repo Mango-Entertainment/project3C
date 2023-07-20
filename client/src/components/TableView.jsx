@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import {
   useReactTable,
   flexRender,
@@ -7,8 +7,9 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
+import Loading from "./Loading";
 
-const TableView = ({ data, columns }) => {
+const TableView = ({data, columns, loading}) => {
   const [sorting, setSorting] = useState([]);
   const [filter, setFilter] = useState("");
 
@@ -26,9 +27,9 @@ const TableView = ({ data, columns }) => {
     onSortingChange: setSorting,
   });
 
-  return (
-    // <div className="flex justify-center px-2">
-    //   <div className="container">
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="w-full">
       <div>
         Filter:
@@ -59,7 +60,7 @@ const TableView = ({ data, columns }) => {
                       </div>
                       <div>
                         {
-                          { asc: "↑", desc: "↓", false: "↕" }[
+                          {asc: "↑", desc: "↓", false: "↕"}[
                             header.column.getIsSorted() ?? null
                           ]
                         }
@@ -117,8 +118,6 @@ const TableView = ({ data, columns }) => {
         </button>
       </div>
     </div>
-    //   </div>
-    // </div>
   );
 };
 
