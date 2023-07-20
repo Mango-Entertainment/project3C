@@ -11,7 +11,7 @@ const useFetch = (url) => {
       setData(data);
       setLoading(false);
     };
-    setTimeout(() => getData(), "5000");
+    getData();
   }, []);
 
   return {data, loading};
