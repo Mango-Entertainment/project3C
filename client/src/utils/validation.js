@@ -1,4 +1,4 @@
-export const nameCheck = /^[a-zA-Z\s]+$/;
+export const nameCheck = /^[a-zA-Z\s]+(?!\s)$/;
 export const twoNameCheck = /^\w+\s{1}\w+$/;
 
 export const cardCheck = /^\d{16}$/;
