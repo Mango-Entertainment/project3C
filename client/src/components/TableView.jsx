@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import {
   useReactTable,
   flexRender,
@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table";
 import Loading from "./Loading";
 
-const TableView = ({data, columns, loading}) => {
+const TableView = ({ data, columns, loading }) => {
   const [sorting, setSorting] = useState([]);
   const [filter, setFilter] = useState("");
 
@@ -59,11 +59,11 @@ const TableView = ({data, columns, loading}) => {
                         )}
                       </div>
                       <div>
-                        {
-                          {asc: "↑", desc: "↓", false: "↕"}[
-                            header.column.getIsSorted() ?? null
-                          ]
-                        }
+                        {header.column.getCanSort()
+                          ? { asc: "↑", desc: "↓", false: "↕" }[
+                              header.column.getIsSorted() ?? null
+                            ]
+                          : null}
                       </div>
                     </div>
                   )}
