@@ -1,16 +1,13 @@
-# tm-main
+[![alex-linkedin-shield]][alex-linkedin-url]
+[![steve-linkedin-shield]][steve-linkedin-url]
 
-Team MANGOJS - Main Repo
-
----
-
-## 3C Project
+# Project 3C
 
 Under folder `tm-main` use the folder `project3C`
 
 After `npm install`, `npm run dev` will run both the front and backend concurrently.
 
-#### A continuation of Project 3 - Credit Card Form
+<!-- #### A continuation of Project 3 - Credit Card Form
 
 You are required to save the form data to a database of your choice and create a new route where you can read the saved data and display to the user.
 
@@ -28,13 +25,7 @@ In data view route, add the ability to edit some user data:
 
 - Update/Edit First name
 - Update/Edit Last name
-- Delete Record
-
-**Security Considerations**
-This exercise is intended to practice API access and hone your frontend skills. Please remember that any sensitive data should be handled appropriately in the backend and should not be saved as plain text.
-The proper handling of sensitive data is beyond the scope of this exercise and all data entered on the form should be fake data, for testing purposes only.
-
-**Drop-Dead Date: Monday 9 AM EST**
+- Delete Record -->
 
 ---
 
@@ -51,6 +42,11 @@ The proper handling of sensitive data is beyond the scope of this exercise and a
 
 ---
 
-## Deployed at https://mango-grammerjam-project3.netlify.app/
+## Deployed at https://main--mango-grammerjam-p3c.netlify.app/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/efae6283-ac63-4f97-aedd-c91e20970346/deploy-status)](https://app.netlify.com/sites/mango-grammerjam-project3/deploys)
+
+[alex-linkedin-shield]: https://img.shields.io/badge/-Alex's_LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[alex-linkedin-url]: https://www.linkedin.com/in/alexcurtisslep/
+[steve-linkedin-url]: https://www.linkedin.com/in/stevesmodish/
+[steve-linkedin-shield]: https://img.shields.io/badge/-Steve's_LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
