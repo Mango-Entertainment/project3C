@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import {
   useReactTable,
   flexRender,
@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table";
 import Loading from "./Loading";
 
-const TableView = ({ data, columns, loading }) => {
+const TableView = ({data, columns, loading}) => {
   const [sorting, setSorting] = useState([]);
   const [filter, setFilter] = useState("");
 
@@ -51,7 +51,11 @@ const TableView = ({ data, columns, loading }) => {
                   className="border p-2 table-cell text-left align-top"
                 >
                   {header.isPlaceholder ? null : (
-                    <div className="flex justify-between pr-2">
+                    <div
+                      className={`flex justify-between pr-2 
+                    ${header.column.getCanSort() ? "cursor-pointer" : ""}
+                    `}
+                    >
                       <div>
                         {flexRender(
                           header.column.columnDef.header,
@@ -60,7 +64,7 @@ const TableView = ({ data, columns, loading }) => {
                       </div>
                       <div>
                         {header.column.getCanSort()
-                          ? { asc: "↑", desc: "↓", false: "↕" }[
+                          ? {asc: "↑", desc: "↓", false: "↕"}[
                               header.column.getIsSorted() ?? null
                             ]
                           : null}
