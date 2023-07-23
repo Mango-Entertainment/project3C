@@ -1,4 +1,5 @@
-import {useState} from "react";
+import { useState } from "react";
+import useFetch from "../hooks/useFetch";
 import {
   useReactTable,
   flexRender,
@@ -9,7 +10,10 @@ import {
 } from "@tanstack/react-table";
 import Loading from "./Loading";
 
-const TableView = ({data, columns, loading}) => {
+const TableView = ({ columns }) => {
+  const { data, loading } = useFetch(
+    "https://mangogrammerjamp3c.onrender.com/api/userData"
+  );
   const [sorting, setSorting] = useState([]);
   const [filter, setFilter] = useState("");
 
@@ -64,7 +68,7 @@ const TableView = ({data, columns, loading}) => {
                       </div>
                       <div>
                         {header.column.getCanSort()
-                          ? {asc: "↑", desc: "↓", false: "↕"}[
+                          ? { asc: "↑", desc: "↓", false: "↕" }[
                               header.column.getIsSorted() ?? null
                             ]
                           : null}

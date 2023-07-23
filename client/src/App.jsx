@@ -54,12 +54,7 @@ function App() {
       <div className="w-[375px] lg:w-[1440px] mx-auto">
         <Navbar />{" "}
         <Routes>
-          <Route
-            element={
-              <TableView data={data} columns={columns} loading={loading} />
-            }
-            path="/dataview"
-          />
+          <Route element={<TableView columns={columns} />} path="/dataview" />
           <Route element={<MainPage />} path="/" />
         </Routes>
         <Footer />
