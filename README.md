@@ -28,6 +28,7 @@ Project 3C has a form for adding in your card information and a data view. The d
 - [![Netlify][NETLIFY]][Netlify-url]
 - [![Vite]][Vite-url]
 
+
 ## Local Project Setup
 
 Git, Node.js, and NPM are required to run this project locally. Install Git by [following this](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). If you don't have Node and NPM installed please follow [these instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).

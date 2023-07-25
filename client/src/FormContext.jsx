@@ -334,7 +334,7 @@ export const FormContextProvider = ({children}) => {
           },
         };
       }
-      if (!twoNameCheck.test(name)) {
+      if (!twoNameCheck.test(name.trimEnd())) {
         return {
           ...state,
           cardholderName: {
@@ -349,7 +349,7 @@ export const FormContextProvider = ({children}) => {
       if (nameCheck.test(name)) {
         return {
           ...state,
-          cardholderName: {data: name, isValid: true, errorMessage: ""},
+          cardholderName: {data: name.trim(), isValid: true, errorMessage: ""},
         };
       }
     };

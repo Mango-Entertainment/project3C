@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import UserData from "./UserData";
 
 const DataView = () => {
@@ -119,7 +119,7 @@ const DataView = () => {
   };
 
   return (
-    <div className="grid grid-cols-8 justify-around justify-items-center lg:h-[600px]">
+    <div className="grid grid-cols-[repeat(8,_minmax(150px,1fr))] ml-2 overflow-x-auto  lg:h-[600px]">
       <div className="cursor-pointer" onClick={() => setFirstSorted(true)}>
         First Name
       </div>
@@ -130,12 +130,12 @@ const DataView = () => {
         className="cursor-pointer col-span-2"
         onClick={() => setNumberSorted(true)}
       >
-        Credit Card Number
+        Card Number
       </div>
       <div>Expiration</div>
       <div>CVC</div>
       <div className="cursor-pointer" onClick={() => setProviderSorted(true)}>
-        Credit Card Provider
+        Provider
       </div>
       <div className="cursor-pointer" onClick={() => setSubDateSorted(true)}>
         Date Submitted
@@ -143,7 +143,7 @@ const DataView = () => {
 
       {userData
         ? userData.map((user) => {
-            return <UserData key={user._id} data={{ ...user }} />;
+            return <UserData key={user._id} data={{...user}} />;
           })
         : null}
     </div>
