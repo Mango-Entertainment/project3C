@@ -1,15 +1,15 @@
 import MainPage from "./components/MainPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import TableView from "./components/TableView";
 import useFetch from "./hooks/useFetch";
-import { Suspense } from "react";
+import {Suspense} from "react";
 import Loading from "./components/Loading";
 
 function App() {
-  const { data, loading } = useFetch(
-    "https://mangogrammerjamp3c.onrender.com/api/userData"
+  const {data, loading} = useFetch(
+    "http://ec2-13-59-53-226.us-east-2.compute.amazonaws.com:8080/api/userData"
   );
 
   /**
