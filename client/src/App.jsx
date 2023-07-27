@@ -4,11 +4,10 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TableView from "./components/TableView";
 import useFetch from "./hooks/useFetch";
+import SERVER_URL from "./utils/server_url.js";
 
 function App() {
-  const { data, loading } = useFetch(
-    `${import.meta.env.VITE_SERVER_URL}/api/userData`
-  );
+  const { data, loading } = useFetch(`${SERVER_URL}/api/userData`);
 
   /**
    * @type import('@tanstack/react-table').ColumnDef<any>

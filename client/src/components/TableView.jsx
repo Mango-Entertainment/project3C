@@ -9,11 +9,10 @@ import {
   getFilteredRowModel,
 } from "@tanstack/react-table";
 import Loading from "./Loading";
+import SERVER_URL from "../utils/server_url.js";
 
 const TableView = ({ columns }) => {
-  const { data, loading } = useFetch(
-    `${import.meta.env.VITE_SERVER_URL}/api/userData`
-  );
+  const { data, loading } = useFetch(`${SERVER_URL}/api/userData`);
 
   const [sorting, setSorting] = useState([]);
   const [filter, setFilter] = useState("");
