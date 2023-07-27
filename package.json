@@ -7,7 +7,9 @@
     "client"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\""
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
+    "client": "npm run dev -w client",
+    "server": "npm run dev -w server"
   },
   "author": "",
   "license": "ISC",
