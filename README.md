@@ -3,7 +3,7 @@
 
 <div align="center">
 <a href="https://github.com/grammerjam/tm-main/tree/main/project3C">
-    <img src="../images/project3C.png" style="height:350px" />
+    <img src="./screenshots/project3C.png" style="height:350px" />
   </a>
 
   <h3 align="center">Project 3C</h3>
