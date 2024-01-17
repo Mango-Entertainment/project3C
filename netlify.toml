@@ -3,10 +3,10 @@
  publish = "client/dist"
  base = "client"
 
-[[context]]
+[context]
  name = "client"
 
-[[context]]
+[context]
  name = "server"
  [context.build]
    ignore = true
