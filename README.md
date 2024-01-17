@@ -2,7 +2,7 @@
 [![steve-linkedin-shield]][steve-linkedin-url]
 
 <div align="center">
-<a href="https://github.com/grammerjam/tm-main/tree/main/project3C">
+<a href="https://github.com/Mango-Entertainment/project3C">
     <img src="./screenshots/project3C.png" style="height:350px" />
   </a>
 
@@ -13,7 +13,7 @@
     <br />
     <a href="https://main--mango-grammerjam-p3c.netlify.app/">View Project 3C</a>
     ·
-    <a href="https://github.com/grammerjam/tm-main/issues/new">Report Bug</a>
+    <a href="https://github.com/Mango-Entertainment/project3C/issues/new">Report Bug</a>
   </p>
 </div>
 
@@ -23,19 +23,39 @@ Project 3C has a form for adding in your card information and a data view. The d
 
 ### Built With
 
-- [![MongoDB][Mongodb]][Mongo-url][![Express][Expressjs]][Express-url][![React][React.js]][React-url][![Node][Node.js]][Node-url]
-- [![Tailwind][Tailwindcss]][Tailwind-url]
-- [![Netlify][NETLIFY]][Netlify-url]
-- [![Vite]][Vite-url]
+[![MongoDB][Mongodb]][Mongo-url][![Express][Expressjs]][Express-url][![React][React.js]][React-url][![Node][Node.js]][Node-url]
+
+[![Tailwind][Tailwindcss]][Tailwind-url]
+
+[![Netlify][NETLIFY]][Netlify-url]
+
+[![Vite]][Vite-url]
 
 
 ## Local Project Setup
 
-Git, Node.js, and NPM are required to run this project locally. Install Git by [following this](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). If you don't have Node and NPM installed please follow [these instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+You need a MongoDB instance to persist the data.
 
-Under folder `tm-main` change directories (or CD) to a folder called `project3C`.
+Run `npm install` in your terminal.
 
-Run `npm install` in your terminal, then running `npm run dev` in your terminal will run both the front and backend concurrently.
+### Environment Variable Setup
+
+Run this command in your terminal to create a .env:
+
+```bash
+cd server
+touch .env
+```
+
+Open up the `.env` your just made and add these variables:
+
+```
+DB_CONNECT=<YOUR_MONGO_CONNECTION_STRING>
+PORT=3000
+```
+
+Running `npm run dev` in your terminal will run both the front and backend concurrently.
+
 
 [alex-linkedin-shield]: https://img.shields.io/badge/-Alex's_LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [alex-linkedin-url]: https://www.linkedin.com/in/alexcurtisslep/
