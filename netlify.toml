@@ -2,11 +2,3 @@
  command = "npm run build"
  publish = "client/dist"
  base = "client"
-
-[context]
- name = "client"
-
-[context]
- name = "server"
- [context.build]
-   ignore = true
