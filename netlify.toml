@@ -1,0 +1,14 @@
+[[context]]
+  name = "client"
+  command = "npm run build"
+  publish = "client/dist"
+  base = "client"
+
+[[context]]
+  name = "server"
+  command = ""
+  publish = "server"
+  base = "server"
+ [context.build]
+  ignore = true
+
