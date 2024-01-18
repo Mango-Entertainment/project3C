@@ -1,3 +1,5 @@
+import SERVER_URL from "./utils/server_url";
+
 export const initialFormState = {
   cardholderName: {
     isValid: false,
@@ -74,7 +76,7 @@ const formReducer = (state, action) => {
       const postData = async (data) => {
         try {
           const res = await fetch(
-            "https://mangogrammerjamp3c.onrender.com/api/userData",
+            `${SERVER_URL}/api/userData`,
             {
               method: "POST",
               headers: {

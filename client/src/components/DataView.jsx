@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import UserData from "./UserData";
+import SERVER_URL from "../utils/server_url";
 
 const DataView = () => {
   const [userData, setUserData] = useState([]);
@@ -12,7 +13,7 @@ const DataView = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        "https://mangogrammerjamp3c.onrender.com/api/userData"
+        `${SERVER_URL}/api/userData`
       );
       const data = await res.json();
       setUserData(data);
